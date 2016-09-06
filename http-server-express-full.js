@@ -10,7 +10,10 @@ var app = express();
 app.use(morgan('dev'));
 app.use(bodyParser.json());
 
-// Definir los recursos que vamos a poner disponibles
+/* 
+ * Definir los recursos que vamos a poner disponibles
+ * y la lógica a ejecutar en cada uno de ellos.
+ */
 app.all('/users', function(req,res,next){
 	res.writeHead(200, {'Content-Type':'text/plain'});
 	next();
@@ -22,8 +25,8 @@ app.get('/users', function(req,res,next){
 
 app.post('/users', function(req,res,next){
 	res.write('Debo agregar un nuevo usuario');
-	res.end('Los datos del nuevo usuario son: nombre='+req.params.nombre+
-			' correo'+req.params.correo);
+	res.end('Los datos del nuevo usuario son: nombre='+req.body.nombre+
+			' correo'+req.body.correo);
 });
 
 app.delete('/users', function(req,res,next){
@@ -36,8 +39,8 @@ app.get('/users/:userId', function(req,res,next){
 
 app.put('/users/:userId', function(req,res,next){
 	res.write('Debo actualizar el usuario con id: '+req.params.userId +'\n');
-	res.end('Los nuevos datos son: nombre='+req.params.nombre+
-			' correo'+req.params.correo);
+	res.end('Los nuevos datos son: nombre='+req.body.nombre+
+			' correo'+req.body.correo);
 });
 
 app.delete('/users/:userId', function(req,res,next){
