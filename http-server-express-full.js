@@ -24,7 +24,7 @@ app.get('/users', function(req,res,next){
 });
 
 app.post('/users', function(req,res,next){
-	res.write('Debo agregar un nuevo usuario');
+	res.write('Debo agregar un nuevo usuario \n');
 	res.end('Los datos del nuevo usuario son: nombre='+req.body.nombre+
 			' correo='+req.body.correo);
 });
