@@ -40,7 +40,7 @@ app.get('/users/:userId', function(req,res,next){
 app.put('/users/:userId', function(req,res,next){
 	res.write('Debo actualizar el usuario con id: '+req.params.userId +'\n');
 	res.end('Los nuevos datos son: nombre='+req.body.nombre+
-			' correo'+req.body.correo);
+			' correo='+req.body.correo);
 });
 
 app.delete('/users/:userId', function(req,res,next){
